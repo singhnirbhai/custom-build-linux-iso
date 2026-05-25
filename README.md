@@ -1,4 +1,6 @@
 # custom-build-linux-iso
+
+```
 Red Hat Style Exam Linux
 Custom lightweight exam Linux project for Red Hat/RHEL-family training labs.
 
@@ -70,10 +72,12 @@ Test the base ISO in VMware.
 Confirm whether live mode needs internet or only a specific exam website.
 Add lockdown rules for terminal, browser, clipboard, USB, or network as required.
 Replace placeholder branding files with final logo and wallpaper.
+```
 
 # Builder VM Steps
 Use these steps on a fresh Rocky Linux 9 builder VM.
 
+```
 1. Create Builder VM
 Recommended VM settings:
 
@@ -118,3 +122,4 @@ If Kickstart validation fails:
 
 ksvalidator kickstarts/rocky9-exam-live.ks
 Fix the line reported by the validator and run the build again.
+```
