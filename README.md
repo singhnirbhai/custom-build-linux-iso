@@ -70,3 +70,51 @@ Test the base ISO in VMware.
 Confirm whether live mode needs internet or only a specific exam website.
 Add lockdown rules for terminal, browser, clipboard, USB, or network as required.
 Replace placeholder branding files with final logo and wallpaper.
+
+# Builder VM Steps
+Use these steps on a fresh Rocky Linux 9 builder VM.
+
+1. Create Builder VM
+Recommended VM settings:
+
+OS: Rocky Linux 9 x86_64
+CPU: 4 cores
+RAM: 8 GB
+Disk: 60 GB
+Network: NAT or bridged with internet
+2. Install Build Tools
+sudo dnf update -y
+sudo dnf install -y epel-release
+sudo dnf install -y lorax livemedia-creator pykickstart anaconda anaconda-tui anaconda-gui
+3. Copy This Project Into The VM
+Example path inside the builder VM:
+
+/home/student/redhat-exam-linux
+4. Build ISO
+From the project folder:
+
+sudo bash scripts/build-rocky9-live.sh
+Expected output:
+
+build-results/Nirbhai-Exam-Linux-9.iso
+5. Test In VMware
+Create a new VMware VM and attach:
+
+build-results/Nirbhai-Exam-Linux-9.iso
+Expected first boot:
+
+Branded ISO name
+Graphical desktop
+Auto-login as student
+dnf, yum, rpm, systemctl, firewall-cmd, SELinux commands available
+6. Common Fixes
+If a package is unavailable:
+
+sudo dnf search package-name
+Then edit:
+
+kickstarts/rocky9-exam-live.ks
+If Kickstart validation fails:
+
+ksvalidator kickstarts/rocky9-exam-live.ks
+Fix the line reported by the validator and run the build again.
