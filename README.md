@@ -123,3 +123,27 @@ If Kickstart validation fails:
 ksvalidator kickstarts/rocky9-exam-live.ks
 Fix the line reported by the validator and run the build again.
 ```
+# Branding Assets
+```
+Put final branding assets here before the production build.
+
+Suggested files:
+
+branding/
+├── logo.png
+├── wallpaper.png
+└── boot-splash.png
+Branding targets:
+
+GRUB boot menu title
+Plymouth boot splash
+Login screen background
+XFCE desktop wallpaper
+/etc/os-release
+/etc/motd
+Hostname
+Current placeholder:
+
+Nirbhai Exam Linux
+For the next iteration, replace this with your final OS name and logo.
+```
